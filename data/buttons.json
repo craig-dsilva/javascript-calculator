@@ -1,0 +1,17 @@
+[
+  { "id": "add", "val": "+" },
+  { "id": "subtract", "val": "-" },
+  { "id": "multiply", "val": "*" },
+  { "id": "divide", "val": "/" },
+  { "id": "seven", "val": "7" },
+  { "id": "eight", "val": "8" },
+  { "id": "nine", "val": "9" },
+  { "id": "four", "val": "4" },
+  { "id": "five", "val": "5" },
+  { "id": "six", "val": "6" },
+  { "id": "one", "val": "1" },
+  { "id": "two", "val": "2" },
+  { "id": "three", "val": "3" },
+  { "id": "zero", "val": "0" },
+  { "id": "decimal", "val": "." }
+]

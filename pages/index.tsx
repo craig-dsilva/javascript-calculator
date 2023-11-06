@@ -1,7 +1,20 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
+import buttons from "../data/buttons.json";
+import Button from "./Button";
 
 const Home = () => {
+  const [display, setDisplay] = useState("0");
+
+  const buttonClick = (val: string) => {
+    setDisplay((prev) => (prev !== "0" ? prev + val : val));
+  };
+
+  const clearDisplay = () => setDisplay("0");
+
+  const calculate = () => setDisplay(eval(display));
+
   return (
     <>
       <Head>
@@ -10,7 +23,21 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/calculator.ico" />
       </Head>
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <div id="display">{display}</div>
+        {buttons.map((el) => {
+          return (
+            <Button
+              key={el.id}
+              id={el.id}
+              val={el.val}
+              handleButton={buttonClick}
+            />
+          );
+        })}
+        <Button id="clear" val="C" handleButton={clearDisplay} />
+        <Button id="equals" val="=" handleButton={calculate} />
+      </main>
     </>
   );
 };
