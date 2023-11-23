@@ -7,13 +7,21 @@ import Button from "./Button";
 const Home = () => {
   const [display, setDisplay] = useState("0");
 
+  const operators = ["+", "-", "*", "/"];
+
   const buttonClick = (val: string) => {
-    setDisplay((prev) => (prev !== "0" ? prev + val : val));
+    const lastCharOfDisplay = display[display.length - 1];
+    if (operators.includes(lastCharOfDisplay) && operators.includes(val))
+      setDisplay((prev) => prev.slice(0, -1) + val);
+    else setDisplay((prev) => (prev !== "0" ? prev + val : val));
   };
 
   const clearDisplay = () => setDisplay("0");
 
-  const calculate = () => setDisplay(eval(display));
+  const calculate = () => {
+    if (!operators.includes(display[display.length - 1]))
+      setDisplay(eval(display));
+  };
 
   return (
     <>
